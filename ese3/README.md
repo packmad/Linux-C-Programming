@@ -55,7 +55,7 @@ display linux processes
 
 Columns:
  * PID  – ProcessID
- * USER – The user that started the process
+ * USER – the USER who started the process
  * PR   – PRiority
  * NI   – "NIce" value
  * VIRT – VIRTual memory used
