@@ -5,9 +5,10 @@
  * https://en.wikipedia.org/wiki/Code_injection#Shell_injection
  */
 
-int main()
+int main(int argc, char* argv[])
 {
-    int retval = system("ls -al ~");
+	
+    int retval = system(argv[1]);
 
     return retval;
 }

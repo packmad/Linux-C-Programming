@@ -12,12 +12,11 @@ int spawn(char* program_name, char** arg_list)
     child_pid = fork();
 
     if(child_pid != 0) {
-        return child_pid;
+        return child_pid; // if I am the parent, return the child pid
     }
     else {
         execvp(program_name, arg_list);
-
-        /* The execvp will never return unless error occurs. */
+        /* The execvp will never return unless error occurs */
         fprintf(stderr, "an error occured when invoking execvp.\n");
         exit(-1);
     }
@@ -35,7 +34,7 @@ int main()
         NULL
     };
 
-    spawn("ls", arg_list);
+    spawn(arg_list[0], arg_list);
     
     wait(&child_status);
 
@@ -46,7 +45,7 @@ int main()
         printf("The child process exited abnormally.\n");
     }
 
-    printf("done with the main program.\n");
+    printf("Done with the main program.\n");
 
     return 0;
 }

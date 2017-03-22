@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
     printf("The program's name is %s.\n", argv[0]);
     printf("The program's been invoked with %d parameters.\n", argc - 1);
