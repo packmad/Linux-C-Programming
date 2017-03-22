@@ -47,3 +47,22 @@ PROCESS STATE CODES
 RSS       resident set size, the non-swapped physical memory that a task has used (in kiloBytes)
 VSZ       virtual memory size of the process in KiB (1024-byte units)
 ```
+
+---
+
+**top**
+display linux processes
+
+Columns:
+ * PID  – ProcessID
+ * USER – The user that started the process
+ * PR   – PRiority
+ * NI   – "NIce" value
+ * VIRT – VIRTual memory used
+ * RES  – RESident (non-swapped physical memory) used
+ * SHR  – SHaRed memory
+ * S    – State
+ * %CPU – CPU load
+ * %MEM – RAM load
+ * TIME+ – uptime
+ * COMMAND – process name
