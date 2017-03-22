@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+
 int spawn(char* program_name, char** arg_list)
 {
     pid_t child_pid;
@@ -18,9 +19,10 @@ int spawn(char* program_name, char** arg_list)
 
         /* The execvp will never return unless error occurs. */
         fprintf(stderr, "an error occured when invoking execvp.\n");
-        abort();
+        exit(-1);
     }
 }
+
 
 int main()
 {
