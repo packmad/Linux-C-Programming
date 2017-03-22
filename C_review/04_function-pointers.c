@@ -3,8 +3,7 @@
 
 int add2to3(int (*fp)(int, int)) // function pointer as parameter
 {
-    return (*
-    )(2, 3);
+    return (*fp)(2, 3);
 }
 
 
