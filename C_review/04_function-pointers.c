@@ -30,10 +30,7 @@ int main(int argc, char* argv[])
 	printf("Call someFunction() using a pointer!\n");
     (*funPoint1)(42); // the same as someFunction(42);
     
-    
-    printf("Calling addInt(..) Result=%d\n", (*funPoint2)(40, 2)); // the same as addInt(40,2)
-    
-    
+    printf("Calling addInt(..) Result=%d\n", (*funPoint2)(40, 2)); // same as addInt(40,2)
+        
 	printf("Passing addInt(..) to add2to3(.) Result= %d\n", add2to3(funPoint2));
-	
 }

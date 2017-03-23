@@ -25,7 +25,7 @@ int spawn(char* program_name, char** arg_list)
 
 int main()
 {
-    int child_status;
+    int child_status, child_pid;
 
     char* arg_list[] = {
         "ls",
@@ -34,9 +34,9 @@ int main()
         NULL
     };
 
-    spawn(arg_list[0], arg_list);
+    child_pid = spawn(arg_list[0], arg_list);
     
-    wait(&child_status);
+    waitpid(child_pid, &child_status, 0); // wait for the child whose PID is equal to child_pid
 
     if(WIFEXITED(child_status)) {
         printf("The child process exited normally with exit code %d.\n", WEXITSTATUS(child_status));
