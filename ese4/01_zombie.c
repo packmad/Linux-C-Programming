@@ -2,6 +2,14 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+/*
+ * A zombie process is a process that has terminated 
+ * but has not been cleaned up yet. 
+ * It is the responsibility of the parent process 
+ * to clean up its zombie children.
+ */
+
+
 int main()
 {
     pid_t child_pid;
@@ -12,10 +20,6 @@ int main()
         sleep(60);
     }
     else { // child
-		/*
-A zombie process is a process that has terminated but has not been cleaned up yet. It
-is the responsibility of the parent process to clean up its zombie children.
-*/
         exit(0);
     }
     
