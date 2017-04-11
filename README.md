@@ -16,3 +16,6 @@ al termine dell'operazione verrà creata la cartella *Linux-C-Programming*
 cd Linux-C-Programming
 git pull
 ```
+Attenzione: se si modifica un file all'interno del repository il comando `git pull` restituirà un errore.
+
+Per lavorare sui sorgenti bisogna copiare i file interessati in un sottoalbero differente da *Linux-C-Programming*
