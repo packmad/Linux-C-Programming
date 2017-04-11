@@ -28,11 +28,11 @@ int main ()
     struct char_print_parms thread2_args;
 
     thread1_args.character = 'x';
-    thread1_args.count = 16;
+    thread1_args.count = 16384;
     pthread_create (&thread1_id, NULL, &char_print, &thread1_args);
 
     thread2_args.character = '_';
-    thread2_args.count = 32;
+    thread2_args.count = 16384;
     pthread_create (&thread2_id, NULL, &char_print, &thread2_args);
 
 	pthread_join (thread1_id, NULL);
