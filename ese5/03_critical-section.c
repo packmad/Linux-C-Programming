@@ -37,6 +37,7 @@ int process_transaction(int from, int to, float dollars)
 
 
 void* make_trans(void* params) {
+	//sleep(5); // remove comment and try again!
 	trans_params* p = (trans_params*) params;
 	process_transaction(p->from, p->to, p->dollars);
 	return NULL;
@@ -53,10 +54,10 @@ void print_balances() {
 
 
 int main() {
-	balances = (float*) malloc( DIM * sizeof( float ));
+	balances = (float*) malloc(DIM * sizeof( float ));
 	balances[0] = 1.1;
 	balances[1] = 2.2;
-	balances[2] = 2.3;
+	balances[2] = 3.3;
 	print_balances();
 	
 	pthread_t t1;
@@ -66,6 +67,10 @@ int main() {
 	params.dollars = 1.1;
 	
 	pthread_create (&t1, NULL, &make_trans, &params);
+	
+	int err = pthread_cancel(t1);
+	printf("pthread_cancel returns: '%s'\n\n", strerror(err));
+	
 	pthread_join (t1, NULL);
 	print_balances();
 	return 0;

@@ -54,7 +54,8 @@ int main()
     /*
      * The first argument is a pointer to a pthread_key_t variable.
 	 * The second argument to pthread_key_create is a cleanup function. 
-	 * If you pass a function pointer here, GNU/Linux automatically calls that function when each thread exits, 
+	 * If you pass a function pointer here, 
+	 * GNU/Linux automatically calls that function when each thread exits, 
 	 * passing the thread-specific value corresponding to that key
      */
     pthread_key_create(&thread_log_key, close_thread_log);

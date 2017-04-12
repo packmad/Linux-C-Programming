@@ -3,7 +3,8 @@ LDFLAGS=-pthread
 CC=gcc
 
 
-all: 01_equals 02_detached 03_critical-section 04_tsd
+all: 01_equals 02_detached 03_critical-section 04_tsd 05_cleanup 06_valgrind
+
 
 01_detached: 01_equals.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
@@ -17,6 +18,11 @@ all: 01_equals 02_detached 03_critical-section 04_tsd
 04_tsd: 04_tsd.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 	
+05_cleanup: 05_cleanup.c
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
+	
+06_valgrind: 06_valgrind.c
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 clean:
 	find . -maxdepth 1 -type f -executable -delete
