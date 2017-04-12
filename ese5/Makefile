@@ -3,8 +3,10 @@ LDFLAGS=-pthread
 CC=gcc
 
 
-all: 01_equals 02_detached 03_critical-section 04_tsd 05_cleanup 06_valgrind
+all: 00_array_sum 01_equals 02_detached 03_critical-section 04_tsd 05_cleanup 06_valgrind
 
+00_array_sum: 00_array_sum.c
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 01_detached: 01_equals.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@

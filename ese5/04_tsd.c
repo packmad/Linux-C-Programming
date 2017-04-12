@@ -1,6 +1,11 @@
 #include <malloc.h>
 #include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sysexits.h>
+#include <unistd.h>
+
 
 #define LOG_SIZE 25
 #define DIM 5
@@ -19,6 +24,7 @@ void write_to_thread_log(const char* message)
 
 void close_thread_log(void* thread_log)
 {
+	printf("Calling 'close_thread_log'\n");
     fclose((FILE*)thread_log);
 }
 
@@ -30,25 +36,25 @@ void* thread_function(void* args)
 
 	/* Generate the filename for this thread’s log file. */
     sprintf(thread_log_filename, "thread_%d.log", (int)pthread_self());
-
+	//TODO check sec
     thread_log = fopen(thread_log_filename, "w");
 
 	/* Store the file pointer in thread-specific data under thread_log_key. */
     pthread_setspecific(thread_log_key, thread_log);
 
-    printf("Thread local variable thread_log_key for thread %d set to %s.\n", (int)pthread_self(), thread_log_filename);
+    printf("Variable thread_log_key for thread %d set to %s.\n", (int)pthread_self(), thread_log_filename);
 
     write_to_thread_log("starts...");
 
     /* Do the big thing here */
 
-    return NULL;
+    return NULL;  // Calling 'close_thread_log'
 }
 
 
 int main()
 {
-    int i;
+    int i, err;
     pthread_t threads[DIM];
     
     /*
@@ -60,9 +66,12 @@ int main()
      */
     pthread_key_create(&thread_log_key, close_thread_log);
 
-
     for(i=0; i<DIM; i++) {
-        pthread_create(&(threads[i]), NULL, thread_function, NULL);
+		err = pthread_create(&(threads[i]), NULL, thread_function, NULL);
+		if (err != 0) {
+			printf("Can't create thread. Reason: '%s'", strerror(err));
+			exit(EX_OSERR);
+		}
     }
 
     for(i=0; i<DIM; i++) {

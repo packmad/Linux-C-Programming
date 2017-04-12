@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sysexits.h>
+#include <unistd.h>
+
 
 #define DIM 3
 
@@ -37,7 +40,7 @@ int process_transaction(int from, int to, float dollars)
 
 
 void* make_trans(void* params) {
-	//sleep(5); // remove comment and try again!
+	// sleep(5); // remove comment and try again!
 	trans_params* p = (trans_params*) params;
 	process_transaction(p->from, p->to, p->dollars);
 	return NULL;
@@ -66,12 +69,16 @@ int main() {
 	params.to = 2;
 	params.dollars = 1.1;
 	
-	pthread_create (&t1, NULL, &make_trans, &params);
+	int err;
 	
-	int err = pthread_cancel(t1);
+	err = pthread_create(&t1, NULL, &make_trans, &params);
+	if (err != 0)
+		exit(EX_OSERR);
+	
+	err = pthread_cancel(t1);
 	printf("pthread_cancel returns: '%s'\n\n", strerror(err));
 	
-	pthread_join (t1, NULL);
+	pthread_join(t1, NULL);
 	print_balances();
 	return 0;
 }
