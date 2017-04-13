@@ -36,7 +36,7 @@ void* thread_function(void* args)
 
 	/* Generate the filename for this thread’s log file. */
     sprintf(thread_log_filename, "thread_%d.log", (int)pthread_self());
-	//TODO check sec
+
     thread_log = fopen(thread_log_filename, "w");
 
 	/* Store the file pointer in thread-specific data under thread_log_key. */
