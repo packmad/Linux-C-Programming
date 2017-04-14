@@ -6,6 +6,6 @@ int main(int argc, char** argv)
     for (i = 2048; i > 1024; i+=2*i) {
         printf("i=%d\n", i);
     }
-	printf("\nReachable?\n");
+    printf("\nReachable?\n");
     return 0;
 }
