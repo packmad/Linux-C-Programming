@@ -38,6 +38,11 @@ int main()
     
     waitpid(child_pid, &child_status, 0); // wait for the child whose PID is equal to child_pid
 
+    /*
+     * if you have only one child you can use:
+     * wait (&child_status);
+     */
+
     if(WIFEXITED(child_status)) {
         printf("The child process exited normally with exit code %d.\n", WEXITSTATUS(child_status));
     }
