@@ -2,17 +2,15 @@ CFLAGS=-Wall -ggdb3 -pedantic
 LDFLAGS=-pthread
 CC=gcc
 
+all: thread-sync-01 thread-sync-02-sem_t thread-sync-03-mutex
 
-all: 01_job-queue-mutex 02_job-queue-semaphore 03_condvar
-
-
-01_job-queue-mutex: 01_job-queue-mutex.c
+thread-sync-01: thread-sync-01.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
-02_job-queue-semaphore: 02_job-queue-semaphore.c
+thread-sync-02-sem_t: thread-sync-02-sem_t.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
-03_condvar: 03_condvar.c
+thread-sync-03-mutex: thread-sync-03-mutex.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 clean:
