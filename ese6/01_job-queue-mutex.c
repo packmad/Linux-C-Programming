@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 #define D_SIZE 32
-#define DIM 8
+#define DIM 88
 
 
 typedef struct job {

@@ -104,7 +104,6 @@ int main(int argc, char *argv[])
         }
         else {
             err = pthread_create(&threads[i], &attr, inc_count, (void*)&(params[i]));
-            err = pthread_create(&threads[i], &attr, inc_count, (void*)&(params[i]));
         }
         if (err != 0) {
             printf("Can't create thread. Reason: '%s'", strerror(err));
