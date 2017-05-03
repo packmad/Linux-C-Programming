@@ -3,7 +3,7 @@ LDFLAGS=-pthread
 CC=gcc
 
 
-all: 01_job-queue-mutex 02_job-queue-semaphore 03_condvar 04_pipe 05_dup2 06_popen
+all: 01_job-queue-mutex 02_job-queue-semaphore 03_condvar 04_pipe 05_dup2 06_popen 07_socket_client 07_socket_server
 
 
 01_job-queue-mutex: 01_job-queue-mutex.c
@@ -22,6 +22,12 @@ all: 01_job-queue-mutex 02_job-queue-semaphore 03_condvar 04_pipe 05_dup2 06_pop
 	$(CC) $(CFLAGS) $< -o $@
 
 06_popen: 06_popen.c
+	$(CC) $(CFLAGS) $< -o $@
+	
+07_socket_client: 07_socket_client.c
+	$(CC) $(CFLAGS) $< -o $@
+
+07_socket_server: 07_socket_server.c
 	$(CC) $(CFLAGS) $< -o $@
 
 
