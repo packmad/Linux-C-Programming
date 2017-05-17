@@ -12,6 +12,7 @@
 
 int main()
 {
+
     int shmid;
     key_t key;
     char *shm, *s;

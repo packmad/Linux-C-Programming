@@ -57,7 +57,7 @@ int binary_semaphore_wait(int semid)
     
     /* If you specify SEM_UNDO Linux automatically undoes the operation 
      * on the semaphore when the process exits */
-    operations[0].sem_flag = SEM_UNDO;
+    operations[0].sem_flg = SEM_UNDO;
 
     return semop(semid, operations, 1);
 }
@@ -71,8 +71,8 @@ int binary_semaphore_post(int semid)
     /* If sem_op is a positive number, 
      * that number is added to the semaphore value immediately */
     operations[0].sem_op = 1;
-    operations[0].sem_flag = SEM_UNDO;
+    operations[0].sem_flg = SEM_UNDO;
 
     return semop(semid, operations, 1);
-}
+}lđđ
 
