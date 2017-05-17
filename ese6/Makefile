@@ -33,5 +33,4 @@ all: 01_job-queue-mutex 02_job-queue-semaphore 03_condvar 04_pipe 05_dup2 06_pop
 
 clean:
 	find . -maxdepth 1 -type f -executable -delete
-	rm *.log 2> /dev/null
 
