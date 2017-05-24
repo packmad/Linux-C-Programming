@@ -72,7 +72,7 @@ int main() {
 		params[i] = i;
 		err = pthread_create(&(threads[i]), NULL, thread_function, (void*)&(params[i]));
 		if (err != 0) {
-			printf("Can't create thread. Reason: '%s'", strerror(err));
+			perror("Can't create thread. Reason: '%s'", strerror(err));
 			exit(EX_OSERR);
 		}
     }

@@ -74,5 +74,5 @@ int binary_semaphore_post(int semid)
     operations[0].sem_flg = SEM_UNDO;
 
     return semop(semid, operations, 1);
-}lđđ
+}
 
