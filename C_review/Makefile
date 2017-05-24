@@ -2,7 +2,7 @@ CFLAGS=-Wall -ggdb3 -pedantic
 CC=gcc
 
 
-all: 00_bad_things  01_data_types  02_array  03_pointers  04_function-pointers  05_malloc 06_union 07_enum
+all: 00_bad_things  01_data_types  02_array  03_pointers  04_function-pointers  05_malloc 06_union 07_enum 08_error-handling
 
 
 00_bad_things: 00_bad_things.c
