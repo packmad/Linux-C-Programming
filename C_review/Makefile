@@ -29,6 +29,8 @@ all: 00_bad_things  01_data_types  02_array  03_pointers  04_function-pointers  
 07_enum: 07_enum.c
 	$(CC) $(CFLAGS) $< -o $@
 
+08_error-handling: 08_error-handling.c
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	find . -maxdepth 1 -type f -executable -delete
