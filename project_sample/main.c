@@ -1,8 +1,6 @@
 #include "calc.h"
 #include <assert.h>
 
-
-
 int main() {
 	double a, b, res;
 	

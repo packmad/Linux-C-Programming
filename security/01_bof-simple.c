@@ -10,10 +10,10 @@ int main(int argc, char **argv)
   char buffer[8];
   
   auth = 0;
-  gets(buffer);
+  fgets(buffer, 16, stdin);
 
   if(auth != 0) {
-      system(argv[1]);
+      printf("Authenticated\n");
   } else {
       printf("Unknown user\n");
   }

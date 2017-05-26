@@ -18,8 +18,9 @@ int main(int argc, char *argv[])
     printf("I have a last name %s.\n", last_name);
     printf("My whole name is %s %c. %s.\n",
             first_name, initial, last_name);
-    if (true) {
-	printf("boolean!\n");
+            
+    if (true) { // #include <stdbool.h>
+		printf("boolean!\n");
     }
     return 0;
 }
