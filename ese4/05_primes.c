@@ -1,4 +1,5 @@
 #include <pthread.h>
+#include <stdbool.h>
 #include <stdio.h>
 
 
@@ -8,9 +9,9 @@ void* compute_prime(void* arg)
     int n = *((int*)arg);
 
     printf("Will compute for the %dth prime...\n", n);
-    while(1) {
+    while(true) {
         int factor;
-        int is_prime = 1;
+        int is_prime = true;
 
         for(factor = 2; factor * factor <= candidate; factor++) {
             if(candidate % factor == 0) {
@@ -19,10 +20,8 @@ void* compute_prime(void* arg)
             }
         }
 
-        if(is_prime) {
-            if(--n == 0) {
-                return (void*) candidate;
-            }
+        if(is_prime && --n == 0) {
+			return (void*) candidate;
         }
 
         ++candidate;

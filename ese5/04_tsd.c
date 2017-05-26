@@ -69,8 +69,8 @@ int main()
     for(i=0; i<DIM; i++) {
 		err = pthread_create(&(threads[i]), NULL, thread_function, NULL);
 		if (err != 0) {
-			printf("Can't create thread. Reason: '%s'", strerror(err));
-			exit(EX_OSERR);
+		    fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+		    exit(EX_OSERR);
 		}
     }
 

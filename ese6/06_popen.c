@@ -3,8 +3,8 @@
 
 int main()
 {
-
-	/* The first argument to popen is executed as a shell command 
+	/*
+	 * The first argument to popen is executed as a shell command 
 	 * in a subprocess running /bin/sh
 	 */
 	

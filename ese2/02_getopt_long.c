@@ -1,8 +1,12 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sysexits.h>
+#include <unistd.h>
+
 
 const char* program_name;
+
 
 void print_help(FILE* stream, int exit_code)
 {
@@ -13,6 +17,7 @@ void print_help(FILE* stream, int exit_code)
             " -v --verbose          Show verbose messages.\n");
     exit(exit_code);
 }
+
 
 int main(int argc, char* argv[])
 {
@@ -35,19 +40,22 @@ int main(int argc, char* argv[])
 
 	if (argc == 1) {
 		fprintf(stderr, "No arguments!\n");
-		exit(-1);
+		exit(EX_USAGE);
 	}
     
-    do{
-        next_option = getopt_long(argc, argv, short_options,
-                                  long_options, NULL);
-        switch(next_option){
+    do {
+        next_option = getopt_long(argc, argv, short_options, long_options, NULL);
+        switch(next_option) {
             case 'h':
-                print_help(stdout, 0);
+                print_help(stdout, EX_OK);
 
             case 'o':
                 output_filename = optarg;
-                //do some stuff
+                if(access(output_filename, F_OK) != -1 ) {
+					// file exists
+				} else {
+					// file doesn't exist
+				}
                 break;
 
             case 'v':
@@ -55,7 +63,7 @@ int main(int argc, char* argv[])
                 break;
 
             case '?':
-                print_help(stderr, 1);
+                print_help(stderr, EX_USAGE);
 
             case -1:
                 break;
@@ -63,13 +71,11 @@ int main(int argc, char* argv[])
             default:
                 abort();
         }
-    }while(next_option != -1);
+    } while(next_option != -1);
 
-    if(verbose)
-    {
+    if(verbose) {
         int i;
-        for (i = optind; i < argc; i++)
-        {
+        for (i = optind; i < argc; i++) {
             printf("Argument: %s\n", argv[i]);
         }
     }

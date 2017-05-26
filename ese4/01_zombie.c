@@ -16,10 +16,12 @@ int main()
 
     child_pid = fork();
 
-    if(child_pid != 0) { // parent
+    if(child_pid != 0) {
+    	// parent
         sleep(60);
     }
-    else { // child
+    else { 
+    	// child
         exit(0);
     }
     

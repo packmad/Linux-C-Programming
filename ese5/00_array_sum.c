@@ -20,7 +20,7 @@ int init_array() {
 	int i, expected;
 	srand(time(NULL)); 
 	for(i=0, expected=0; i<ARR_SIZE; i++) {
-		array[i] = rand() % 10; // avoid overflow in sum
+		array[i] = rand() % 10; // avoid integer overflow in sum
 		expected += array[i];
 	}
 	return expected;
@@ -35,9 +35,9 @@ void* calculate_sum(void *arg)
 	int sum, i;
 	
 	printf("Thread=%d, p=%d, from=%d, to=%d\n", (int)pthread_self(), p, from, to); 
-	for(sum=0, i=from; i<to; i++)
+	for(sum=0, i=from; i<to; i++) {
 		sum += array[i];
-
+	}
 	return (void*)sum;
 }
 
@@ -53,7 +53,7 @@ int main(void)
 		params[i] = i; 
         err = pthread_create(&(tid[i]), NULL, &calculate_sum, (void*)&(params[i]));
         if (err != 0) {
-            printf("Can't create thread. Reason: '%s'", strerror(err));
+            fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
             exit(EX_OSERR);
 		}
     }
@@ -64,6 +64,6 @@ int main(void)
 	}
 	
 	assert(expected == result);
-	printf("result=%d\n", result);
+	printf("Result=%d\n", result);
     return 0;
 }

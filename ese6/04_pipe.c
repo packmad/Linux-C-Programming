@@ -27,6 +27,7 @@ void reader(FILE* stream)
     }
 }
 
+
 int main()
 {
     int fds[2];
@@ -64,4 +65,3 @@ int main()
 
     return 0;
 }
-

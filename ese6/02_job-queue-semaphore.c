@@ -82,12 +82,12 @@ int main() {
 		params[i] = i;
 		err = pthread_create(&(threads[i]), NULL, thread_function, (void*)&(params[i]));
 		if (err != 0) {
-			printf("Can't create thread. Reason: '%s'", strerror(err));
-			exit(EX_OSERR);
+		    fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+		    exit(EX_OSERR);
 		}
     }
     
-	sem_post(&job_queue_sem); /* Now threads can start working */
+	sem_post(&job_queue_sem); /* Now threads can start */
 
     for(i=0; i<DIM; i++) {
 		pthread_join(threads[i], NULL);

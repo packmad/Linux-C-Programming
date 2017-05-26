@@ -8,7 +8,8 @@
 
 #define DIM 3
 
-typedef struct trans_params
+
+typedef struct trans_params_t
 {
     int from;
 	int to;
@@ -70,10 +71,11 @@ int main() {
 	params.dollars = 1.1;
 	
 	int err;
-	
 	err = pthread_create(&t1, NULL, &make_trans, &params);
-	if (err != 0)
-		exit(EX_OSERR);
+	if (err != 0) {
+        fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+        exit(EX_OSERR);
+	}
 	
 	err = pthread_cancel(t1);
 	printf("pthread_cancel returns: '%s'\n\n", strerror(err));

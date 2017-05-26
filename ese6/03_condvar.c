@@ -105,10 +105,10 @@ int main(int argc, char *argv[])
         else {
             err = pthread_create(&threads[i], &attr, inc_count, (void*)&(params[i]));
         }
-        if (err != 0) {
-            printf("Can't create thread. Reason: '%s'", strerror(err));
-            exit(EX_OSERR);
-        }
+		if (err != 0) {
+		    fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+		    exit(EX_OSERR);
+		}
     }
 
     /* Wait for all threads to complete */

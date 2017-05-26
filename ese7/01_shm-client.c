@@ -6,6 +6,7 @@
 #include <sys/shm.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sysexits.h>
 #include <unistd.h>
 
 #define SHMSZ 27
@@ -35,8 +36,8 @@ int main()
      * Now we attach the segment to our data space.
      */
     if ((shm = shmat(shmid, NULL, 0)) == (char *) -1) {
-        perror("shmat");
-        exit(1);
+        perror("Error");
+        exit(EX_OSFILE);
     }
 
     /*

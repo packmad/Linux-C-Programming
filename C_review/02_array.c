@@ -5,7 +5,13 @@ int main(int argc, char *argv[])
 {
     int numbers[DIM] = {0};
     char name[DIM] = {'a','a','a','\0'};
+    long unsigned int sof_numbers, sof_name;
 
+	sof_numbers = sizeof(numbers);
+	sof_name = sizeof(name);
+	printf("sizeof(numbers) = %ld\n", sof_numbers);
+	printf("sizeof(name) = %ld\n\n", sof_name);
+	
     // first, print them out raw
     printf("numbers: %d %d %d %d\n",
             numbers[0], numbers[1],
@@ -15,7 +21,7 @@ int main(int argc, char *argv[])
             name[0], name[1],
             name[2], name[3]);
 
-    printf("name: %s\n", name);
+    printf("name: %s\n\n", name);
 
     // setup the numbers
     numbers[0] = 1;

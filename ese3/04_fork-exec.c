@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sysexits.h>
 #include <unistd.h>
 
 
@@ -17,8 +18,8 @@ int spawn(char* program_name, char** arg_list)
     else {
         execvp(program_name, arg_list);
         /* The execvp will never return unless error occurs */
-        fprintf(stderr, "an error occured when invoking execvp.\n");
-        exit(-1);
+        fprintf(stderr, "An error occured when invoking execvp.\n");
+        exit(EX_OSERR);
     }
 }
 

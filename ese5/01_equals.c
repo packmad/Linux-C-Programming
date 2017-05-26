@@ -1,12 +1,14 @@
-#include<stdio.h>
-#include<string.h>
-#include<pthread.h>
-#include<stdlib.h>
-#include<unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sysexits.h>
 
 #define DIM 2
 
 pthread_t tid[DIM];
+
 
 void* doSomeThing(void *arg)
 {
@@ -24,22 +26,22 @@ void* doSomeThing(void *arg)
 
 int main(void)
 {
-    int i;
-	int err[DIM];
+    int i, err;
 
 	for(i=0; i<DIM; i++) {
-        err[i] = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
+        err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
 
-        if (err[i] != 0)
-            printf("Can't create thread. Reason: '%s'", strerror(err[i]));
-        else
+        if (err != 0) {
+            fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+            exit(EX_OSERR);
+		}
+        else {
             printf("Thread created successfully\n");
+		}
     }
 
 	for(i=0; i<DIM; i++) {
-		if (err[i] == 0) {
-			 pthread_join(tid[i], NULL);
-		}
+		pthread_join(tid[i], NULL);
 	}
 
     return 0;

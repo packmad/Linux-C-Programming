@@ -12,10 +12,12 @@
  */
 sig_atomic_t sigusr1_count = 0;
 
+
 void sigusr1_handler(int signal_number)
 {
     ++sigusr1_count;
 }
+
 
 int main()
 {

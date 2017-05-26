@@ -31,8 +31,8 @@ int main() {
      * Now we attach the segment to our data space.
      */
     if ((shm = shmat(shmid, 0, 0)) == (char *) -1) {
-        perror("shmat");
-        exit(1);
+        perror("Error");
+        exit(EX_OSFILE);
     }
 
     /*

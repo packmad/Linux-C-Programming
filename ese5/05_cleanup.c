@@ -44,8 +44,8 @@ int main (void) {
     
     err = pthread_create(&thread, NULL, &do_some_work, NULL);
 	if (err != 0) {
-		printf("Can't create thread. Reason: '%s'", strerror(err));
-		exit(EX_OSERR);
+        fprintf(stderr, "Can't create thread. Reason: '%s'", strerror(err));
+        exit(EX_OSERR);
 	}
 
     pthread_join(thread, NULL);

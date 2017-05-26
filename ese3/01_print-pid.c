@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     printf("The process ID of mine is %d.\n", mine);
     printf("The process ID of my parent is %d.\n", parent);
 
-	sleep(42);
+	sleep(42); // ps -aux
 
     return 0;
 }
