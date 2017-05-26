@@ -6,6 +6,7 @@ LDFLAGS = -pthread
 
 HEADERS := $(wildcard *.h)
 CFILES := $(wildcard *.c)
+OBJECTS := $(wildcard *.o)
 
 
 all: libcalc $(PROJECT)
