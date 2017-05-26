@@ -3,19 +3,19 @@ CC = gcc
 CFLAGS = -Wall -pedantic
 DEBUG = -ggdb3 -D DEBUG
 LDFLAGS = -pthread
-OBJECTS := $(wildcard *.o)
+
+HEADERS := $(wildcard *.h)
+CFILES := $(wildcard *.c)
 
 
-all: libcalc main $(PROJECT)
+all: libcalc $(PROJECT)
 
 libcalc: calc.c calc.h
 	$(CC) -c $(CFLAGS) $<
 
-main: main.c
+$(PROJECT): main.c
 	$(CC) -c $(CFLAGS) $<
-	
-$(PROJECT): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(PROJECT)
+	$(CC) $(CFLAGS) $(wildcard *.o) -o $(PROJECT)
 	
 clean:
 	@rm $(PROJECT)
