@@ -28,5 +28,4 @@ all: 00_array_sum 01_equals 02_detached 03_critical-section 04_tsd 05_cleanup 06
 
 clean:
 	find . -maxdepth 1 -type f -executable -delete
-	rm *.log 2> /dev/null
 
