@@ -7,8 +7,8 @@
 /* 
  * This program contains a race condition and a memory leak.
  * Valgrind is your friend:
- * valgrind --tool=helgrind --read-var-info=yes ./06_valgrind
- * valgrind --tool=memcheck --leak-check=yes ./06_valgrind 
+ * valgrind --tool=helgrind --trace-children=yes --read-var-info=yes ./06_valgrind
+ * valgrind --tool=memcheck --trace-children=yes --leak-check=yes ./06_valgrind 
  */
 
 int var = 42;
