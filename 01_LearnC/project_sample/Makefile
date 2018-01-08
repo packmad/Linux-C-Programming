@@ -15,8 +15,8 @@ libcalc: calc.c calc.h
 	$(CC) -c $(CFLAGS) $<
 
 $(PROJECT): main.c
-	$(CC) -c $(CFLAGS) $<
 	$(CC) $(CFLAGS) $(wildcard *.o) -o $(PROJECT)
+	$(CC) -c $(CFLAGS) $<
 	
 clean:
 	@rm $(PROJECT)
