@@ -15,7 +15,7 @@ int main() {
    union data_u data;        
 
    // max size of type in union
-   printf( "Memory size occupied by data : %d\n", sizeof(data));
+   printf( "Memory size occupied by data : %zu\n", sizeof(data));
 
    data.i = 42;
    printf("%d %f %s\n", data.i, data.f, data.str);
