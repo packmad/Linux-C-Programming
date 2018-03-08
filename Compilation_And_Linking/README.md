@@ -18,14 +18,13 @@ gcc -S hello_world.c
 
 
 * **Assembly**
-```
-gcc -c hello_world.c
-```
+``` gcc -c hello_world.c ```
 
-    * Input: assembler source code (.s)
-    * Output: object code (.o)
-      * [Extensible Linking Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) relocatable
-      * machine code instructions but some pieces of the program are out of order or missing
+
+   * Input: assembler source code (.s)
+   * Output: object code (.o)
+     * [Extensible Linking Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) relocatable
+     * machine code instructions but some pieces of the program are out of order or missing
 
 * **Linking**
 ```
