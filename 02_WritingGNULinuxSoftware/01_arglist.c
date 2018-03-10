@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/**
+ * Listing 2.1 (arglist.c) Using argc and argv
+ */
 
 int main(int argc, char* argv[])
 {
@@ -8,8 +11,7 @@ int main(int argc, char* argv[])
 	
     if(argc > 1) {
         int i;
-        for (i = 1; i < argc; i++)
-        {
+        for (i = 1; i < argc; i++) {
             printf("The %dth parameter is %s.\n", i, argv[i]);
         }
     }

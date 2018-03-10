@@ -2,6 +2,10 @@
 
 Repository con le esercitazioni del corso di Calcolatori Elettronici (a.a. 2017/18)
 
+Queste esercitazioni sono basate sul libro: *Advanced Linux programming by Mark Mitchell*
+
+
+
 ### Clonare il repository:
 
 ``` 
