@@ -3,6 +3,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+/**
+ * Listing 5.8 (dup2.c) Redirect Output from a Pipe with dup2
+ */
+
 
 int main ()
 {

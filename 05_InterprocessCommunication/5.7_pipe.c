@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define BUF_SIZE 1024 
+#define BUF_SIZE 1024
 
-/* Write COUNT copies of MESSAGE to STREAM, 
- * pausing for a second between each. 
+/**
+ * Listing 5.7 (pipe.c) Using a Pipe to Communicate with a Child Process
  */
+
+
+/* Write COUNT copies of MESSAGE to STREAM, pausing for a second between each. */
 void writer(const char* message, int count, FILE* stream)
 {
     for(; count > 0; --count) {

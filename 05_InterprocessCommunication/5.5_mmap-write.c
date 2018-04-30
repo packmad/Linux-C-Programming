@@ -8,6 +8,10 @@
 
 #define FILE_LENGTH 0x100
 
+/**
+ * Listing 5.5 (mmap-write.c) Write a Random Number to a Memory-Mapped File
+ */
+
 
 int random_range(unsigned const low, unsigned const high)
 {

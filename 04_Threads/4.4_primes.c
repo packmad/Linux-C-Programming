@@ -1,6 +1,8 @@
 #include <pthread.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
+
 
 /**
  * Listing 4.4 ( primes.c) Compute Prime Numbers in a Thread
@@ -8,7 +10,7 @@
  
 void* compute_prime(void* arg)
 {
-    int candidate = 2;
+    long candidate = 2;
     int n = *((int*)arg);
 
     printf("Will compute for the %dth prime...\n", n);
@@ -24,7 +26,7 @@ void* compute_prime(void* arg)
         }
 
         if(is_prime && --n == 0) {
-			return (void*) candidate;
+		return (void*)candidate;
         }
 
         ++candidate;

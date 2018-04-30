@@ -3,45 +3,32 @@ LDFLAGS=-pthread
 CC=gcc
 
 
-all: 01_thread-create 02-03_thread-create2 04_primes 05_detached 06_critical-section 07_tsd 08_cleanup 11_job-queue-mutex 12_job-queue-semaphore 13_condvar 15_thread-pid pthread_equal
+all: 4.11_job-queue-mutex 4.12_job-queue-semaphore 4.13_condvar 4.15_thread-pid 4.1_thread-create 4.2-3_thread-create2 4.4.1_pthread-equal 4.4_primes 4.5_detached 4.6_critical-section 4.7_tsd 4.8_cleanup
 
-01_thread-create: 01_thread-create.c
+4.11_job-queue-mutex: 4.11_job-queue-mutex.c
+
+
+4.12_job-queue-semaphore: 4.12_job-queue-semaphore.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-02-03_thread-create2: 02-03_thread-create2.c
+4.13_condvar: 4.13_condvar.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-04_primes: 04_primes.c  
+4.15_thread-pid: 4.15_thread-pid.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-04_thread-create2: 04_thread-create2.c
+4.1_thread-create: 4.1_thread-create.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-05_detached: 05_detached.c
+4.2-3_thread-create2: 4.2-3_thread-create2.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-06_critical-section: 06_critical-section.c
+4.4.1_pthread-equal: 4.4.1_pthread-equal.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-07_tsd: 07_tsd.c
+4.4_primes: 4.4_primes.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-08_cleanup: 08_cleanup.c
+4.5_detached: 4.5_detached.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-11_job-queue-mutex: 11_job-queue-mutex.c
+4.6_critical-section: 4.6_critical-section.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-12_job-queue-semaphore: 12_job-queue-semaphore.c
+4.7_tsd: 4.7_tsd.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-13_condvar: 13_condvar.c
-	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-15_thread-pid: 15_thread-pid.c
-	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
-
-pthread_equal: pthread_equal.c
+4.8_cleanup: 4.8_cleanup.c
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 clean:
