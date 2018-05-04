@@ -15,6 +15,7 @@ int main()
 	FILE* stream = popen("sort", "w");
 
 	fprintf(stream, "B\n");
+	fprintf(stream, "D\n");
 	fprintf(stream, "A\n");
 	fprintf(stream, "C\n");
 
