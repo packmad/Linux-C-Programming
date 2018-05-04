@@ -43,7 +43,7 @@ int process_transaction(int from, int to, float dollars)
 
 
 void* make_trans(void* params) {
-	// sleep(5); // remove comment and try again!
+	sleep(5); // remove comment and try again!
 	trans_params* p = (trans_params*) params;
 	process_transaction(p->from, p->to, p->dollars);
 	return NULL;

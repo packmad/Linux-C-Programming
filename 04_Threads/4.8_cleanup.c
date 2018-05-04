@@ -12,7 +12,12 @@
 void* allocate_buffer(size_t size)
 {
 	printf("Inside 'allocate_buffer'...\n");
-    return malloc(size);
+    void* res = malloc(size);
+    if (res == NULL) {
+        perror("malloc fails!");
+        exit(EX_OSERR);
+    }
+    return res;
 }
 
 
@@ -32,7 +37,7 @@ void* do_some_work(void* params)
      * do some work here that might call pthread_exit
      * or might be cancelled
      */
-    //pthread_exit(0); // uncomment: what does it change?
+    pthread_exit(0); // uncomment: what does it change?
     
     printf("'do_some_work' is near the end!\n");
 

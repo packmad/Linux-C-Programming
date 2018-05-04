@@ -15,13 +15,15 @@ int main() {
     char *shm, *s;
 
     /*
-     * We'll name our shared memory segment
-     * "5678".
+     * We'll name our shared memory segment "5678".
      */
     key = 5678;
 
     /*
      * Create the segment.
+     * int shmget(key_t key, size_t size, int shmflg);
+     * returns  the identifier of the shared memory segment associated with the
+     * value of the argument key
      */
     if ((shmid = shmget(key, SHMSZ, IPC_CREAT | 0666)) < 0) {
         perror("shmget");
@@ -30,6 +32,8 @@ int main() {
 
     /*
      * Now we attach the segment to our data space.
+     * void *shmat(int shmid, const void *shmaddr, int shmflg);
+     * 
      */
     if ((shm = shmat(shmid, 0, 0)) == (char *) -1) {
         perror("Error");
