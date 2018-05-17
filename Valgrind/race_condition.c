@@ -5,24 +5,22 @@
 #include <sysexits.h>
 
 /* 
- * This program contains a race condition and a memory leak.
- * Valgrind is your friend:
- * valgrind --tool=helgrind --trace-children=yes --read-var-info=yes ./06_valgrind
- * valgrind --tool=memcheck --trace-children=yes --leak-check=yes ./06_valgrind 
+ * This program contains a race condition!
+ * valgrind --tool=helgrind --trace-children=yes --read-var-info=yes ./race_condition
  */
 
 int var = 42;
 
-void* child_fn(void* arg) {
-	int* stuff = (int*) malloc(var * sizeof(int));
+void* child_fn(void* arg) 
+{
 	if (var == 42)
     	var++;
-    stuff[var-1] = 0;
     return NULL;
 }
 
 
-int main (void) {
+int main (void)
+{
 	int err;
     pthread_t child;
     

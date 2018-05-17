@@ -6,7 +6,7 @@ all: 00_bad_things  01_data_types  02_array  03_pointers  04_function-pointers  
 
 
 00_bad_things: 00_bad_things.c
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -fno-stack-protector $< -o $@
 
 01_data_types: 01_data_types.c
 	$(CC) $(CFLAGS) $< -o $@

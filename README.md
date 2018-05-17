@@ -32,3 +32,8 @@ ALP :== Advanced Linux Programming [book](https://github.com/packmad/Linux-C-Pro
 * **04_Threads**: ALP chapter 4 source codes
 * **05_Interprocess Communication**: ALP chapter 5 source codes
 * **Various**: various source codes
+
+
+Recommended readings:
+* [Guide to makefiles](https://web.stanford.edu/class/cs107/guide/make.html)
+* [Guide to gdb](https://web.stanford.edu/class/cs107/guide/gdb.html)
