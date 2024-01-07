@@ -35,5 +35,5 @@ ALP :== Advanced Linux Programming [book](https://github.com/packmad/Linux-C-Pro
 
 
 Recommended readings:
-* [Guide to makefiles](https://web.stanford.edu/class/cs107/guide/make.html)
-* [Guide to gdb](https://web.stanford.edu/class/cs107/guide/gdb.html)
+* [Guide to makefiles](https://web.stanford.edu/class/archive/cs/cs107/cs107.1174/guide_make.html)
+* [Guide to gdb](https://web.stanford.edu/class/archive/cs/cs107/cs107.1194/resources/gdb)
